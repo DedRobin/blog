@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def index(request):
+    return HttpResponse("Posts index view")
+
+
+def user(request):
+    if request.GET.get("key") == "test":
+        return HttpResponse("GET method")
+    if request.POST.get("key") == "test":
+        return HttpResponse("POST method")
