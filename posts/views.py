@@ -10,3 +10,4 @@ def post(request):
         return HttpResponse("GET method for 'post'")
     if request.POST.get("key") == "test":
         return HttpResponse("POST method for 'post'")
+    return HttpResponse("Posts index view")
