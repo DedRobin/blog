@@ -3,18 +3,17 @@ import logging
 from django.shortcuts import render
 from django.http import HttpResponse
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
 def user(request):
     if request.POST:
         data = request.POST.dict()
-        logger.info(data)
+        for k, v in data.items():
+            logger.info("POST param: {} = {}".format(k, v))
 
-        return HttpResponse(f"It's POST method for 'user'.\nData: {data}")
+        return HttpResponse("<h1>Data is recorded</h1>")
 
     data = request.GET.dict()
-    logger.info(data)
 
     return HttpResponse(f"It's GET method for 'user'.\nData: {data}")
