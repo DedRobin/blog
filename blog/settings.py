@@ -142,7 +142,7 @@ LOGGING = {
 }
 
 # Environment variables
-TEST_VAR = os.environ.get('TEST_ENV_VAR')
+TEST_VAR_1 = os.environ.get('TEST_VAR_1')
 
 PRINT_TEST_VAR_2_AND_3 = os.environ.get('PRINT_TEST_VAR_2_AND_3')
 TEST_VAR_2 = os.environ.get('TEST_VAR_2')
