@@ -9,11 +9,15 @@ logger = logging.getLogger(__name__)
 def user(request):
     if request.POST:
         data = request.POST.dict()
-        for k, v in data.items():
-            logger.info("POST param: {} = {}".format(k, v))
+        for key, value in data.items():
+            logger.info(f"POST param: {key} = {value}")
 
-        return HttpResponse("<h1>Data is recorded</h1>")
+        return HttpResponse("<h1>It's POST method for 'user'</h1>")
 
     data = request.GET.dict()
 
-    return HttpResponse(f"It's GET method for 'user'.\nData: {data}")
+    text_for_response = f"<h1>It's GET method for 'user'</h1><p>Data:</p>"
+    rows = [f"\n<br>{key} = {value}" for key, value in data.items()]
+    text_for_response = text_for_response + "".join(rows)
+
+    return HttpResponse(text_for_response)
