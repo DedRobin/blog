@@ -5,7 +5,6 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
-
 def index(request):
     test_var_1 = settings.TEST_VAR_1
     logger.info(f"\n\tTEST_VAR_1 = {test_var_1}")
